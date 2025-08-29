@@ -5,8 +5,15 @@ app.use(express.json());
 
 const FULL_NAME = "yashovardhan_harit"; // lowercase full name
 const DOB = "08052005"; // ddmmyyyy format
-const EMAIL = "yourmail@vitstudent.ac.in";
-const ROLL_NUMBER = "21BCE0000";
+const EMAIL = "yashovardhan.harit2022@vitstudent.ac.in";
+const ROLL_NUMBER = "22BCE1902";
+
+app.get("/", (req, res) => {
+  res.json({
+    message: "✅ BFHL API is running",
+    endpoint: "/bfhl (POST)"
+  });
+});
 
 app.post("/bfhl", (req, res) => {
   try {
@@ -34,7 +41,6 @@ app.post("/bfhl", (req, res) => {
       }
     });
 
-    // concat_string: reverse alphabets + alternating caps
     let concat_string = alphabets.join("").split("").reverse()
       .map((ch, i) => (i % 2 === 0 ? ch.toUpperCase() : ch.toLowerCase()))
       .join("");
